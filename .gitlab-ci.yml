@@ -1,0 +1,12 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+  - run
+
+run:
+  stage: run
+  script:
+    - docker run -e "COOKIE=$COOKIE" -e "USER_AGENT=$USER_AGENT" -e "RUN_ONCE=True" -e "DISCORD_WEBHOOK=$DISCORD_WEBHOOK" ghcr.io/raidensakura/hoyolab-auto-login:master
