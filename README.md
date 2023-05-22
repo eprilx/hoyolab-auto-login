@@ -6,7 +6,7 @@
   <a href="https://github.com/raidensakura"><img src="https://img.shields.io/badge/hoyolab--auto--login-by%20Raiden-d11df9"></a>
   <a href="[https://github.com/raidensakura](https://github.com/python/black)"><img src="https://img.shields.io/badge/code%20style-black-1c1c1c.svg"></a>
   <a href="https://dsc.gg/transience/"><img src="https://discord.com/api/guilds/616969119685935162/widget.png"></a><br>
-  <a href="https://ko-fi.com/P5P6D65UW"><img src="https://storage.ko-fi.com/cdn/brandasset/kofi_button_red.png" style="height: 25px;"></a>
+  <a href="https://ko-fi.com/P5P6D65UW"><img src="https://ko-fi.com/img/githubbutton_sm.svg"></a>
 </h1>
 
 ## Overview
@@ -104,16 +104,39 @@ In addition to hosting your applications, [Northflank](https://northflank.com/pr
 
 </details>
 
+<details>
+<summary><b>Running the script on Zeabur</b></summary>
+
+[Zeabur has a free plan](https://zeabur.com/pricing) that doesn't require a payment method, but like Railway, it has no option to schedule runtime, so this script will run constantly as a Docker container. The downside is that it takes slightly longer to build a Docker image on Zeabur than the other platforms.
+
+1. [Sign Up on Zeabur](https://dash.zeabur.com) if you haven't.
+2. Fork this repo  
+![image](https://user-images.githubusercontent.com/38610216/216755745-4c347b2c-1e1b-4672-8212-17bd79a24d16.png)
+3. Make a new project and a new service in it, choosing "Deploy from your source code" option  
+![image](https://github.com/raidensakura/hoyolab-auto-login/assets/38610216/2ffd4706-549e-42a3-92fd-74d65274209e)  
+4. Click "Configure Github APP" and select the repository you just forked  
+![image](https://github.com/raidensakura/hoyolab-auto-login/assets/38610216/96a7e86d-4aaa-4a99-8b30-a4526c48b3ec)  
+5. Select the "master" branch and click "Deploy"  
+![image](https://github.com/raidensakura/hoyolab-auto-login/assets/38610216/244c8e58-fb89-44a5-bdaf-efd8919d1cce)  
+6. Select the new service you just deployed, and fill in your credentials under "Variable". Make sure to **not** include `RUN_ONCE` otherwise your script will not loop everyday. It should look like this afterward  
+![image](https://github.com/raidensakura/hoyolab-auto-login/assets/38610216/73f15821-b005-4268-916f-76fe170388e4)
+7. Under "Deployments", click "Redeploy" for the variable changes to take effect.
+
+</details>
+
 ## FAQ
 
-- **Do I have to run this on Railway?**  
-You can run it on anything that can run Python or Docker (which is pretty much anything). Railway just happen to be the most user friendly PaaS I currently use.
+- **Which platform do I choose??**  
+If you have no payment card for verification - Zeabur.  
+If you want simple UI and don't mind upgrading to their developer plan - Railway.  
+If you don't want your script to run constantly - Northflank.  
 
 - **If I play multiple Hoyoverse games, does it log into all of them?**  
 The supported games for now are:
   - Honkai Impact 3rd  
   - Genshin Impact  
   - Honkai: Star Rail  
+  - Tears of Themis  
 
   If you've binded those game accounts to your Hoyolab account, it will claim the daily login in all of them.
 

@@ -109,13 +109,13 @@ while True:
                 logging.info(f"Genshin Impact Account found in server {region_name}")
                 act_id = "e202102251931481"
                 info_url = (
-                    f"https://hk4e-api-os.mihoyo.com/event/sol/info?act_id={act_id}"
+                    f"https://sg-hk4e-api.hoyolab.com/event/sol/info?act_id={act_id}"
                 )
                 reward_url = (
-                    f"https://hk4e-api-os.mihoyo.com/event/sol/home?act_id={act_id}"
+                    f"https://sg-hk4e-api.hoyolab.com/event/sol/home?act_id={act_id}"
                 )
                 sign_url = (
-                    f"https://hk4e-api-os.mihoyo.com/event/sol/sign?act_id={act_id}"
+                    f"https://sg-hk4e-api.hoyolab.com/event/sol/sign?act_id={act_id}"
                 )
                 suffix = "Traveller"
                 title = "Genshin Impact Daily Login"
@@ -123,6 +123,7 @@ while True:
                 author_name = "Paimon"
                 author_url = "https://genshin.hoyoverse.com"
                 author_icon = "https://img-os-static.hoyolab.com/communityWeb/upload/1d7dd8f33c5ccdfdeac86e1e86ddd652.png"
+
             elif account_list[index].get("game_biz", "") == "hkrpg_global":
                 logging.info(f"Honkai Star Rail Account found in server {region_name}")
                 act_id = "e202303301540311"
@@ -135,6 +136,7 @@ while True:
                 author_name = "March 7th"
                 author_url = "https://hsr.hoyoverse.com/en-us/"
                 author_icon = "https://img-os-static.hoyolab.com/communityWeb/upload/473afd1250b71ba470744aa240f6d638.png"
+
             elif account_list[index].get("game_biz", "") == "bh3_global":
                 logging.info(f"Honkai Impact 3 Account found in server {region_name}")
                 act_id = "e202110291205111"
@@ -153,11 +155,30 @@ while True:
                 author_name = "Ai-chan"
                 author_url = "https://honkaiimpact3.hoyoverse.com/global/en-us"
                 author_icon = "https://img-os-static.hoyolab.com/communityWeb/upload/bbb364aaa7d51d168c96aaa6a1939cba.png"
+
+            elif account_list[index].get("game_biz", "") == "nxx_global":
+                logging.info(f"Tears of Themis Account found in server {region_name}")
+                act_id = "e202202281857121"
+                info_url = f"https://sg-public-api.hoyolab.com/event/luna/os/info?act_id={act_id}"
+                reward_url = (
+                    f"https://sg-public-api.hoyolab.com/event/luna/home?act_id={act_id}"
+                )
+                sign_url = (
+                    f"https://sg-public-api.hoyolab.com/event/luna/sign?act_id={act_id}"
+                )
+                suffix = "Detective"
+                title = "Tears of Themis Daily Login"
+                color = "86EAC1"
+                author_name = "Luke Pearce"
+                author_url = "https://tot.hoyoverse.com/en-us/"
+                author_icon = "https://img-os-static.hoyolab.com/communityWeb/upload/e500ff6fef5d44fa38db2ba52f34b771.png"
+
             else:
                 logging.error(
-                    account_list[index].get("game_biz", ""),
-                    "is currently not supported. Please open an issue on github for it to be added.",
+                    f"Game account {account_list[index].get('game_biz', '')} is currently not supported."
+                    f" Please open an issue on github for it to be added."
                 )
+                continue
 
             logging.info(f"Checking in UID {uid} ...")
 
